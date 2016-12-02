@@ -6,8 +6,13 @@ const bankai = require('bankai')
 const http = require('http')
 const path = require('path')
 
+const options = { js: { transform: ['envify', 'es2020'] } }
+if (process.env.NODE_ENV === 'production') {
+  options.optimize = true
+}
+
 const clientPath = path.join(__dirname, 'client.js')
-const assets = bankai(clientPath)
+const assets = bankai(clientPath, options)
 
 http.createServer((req, res) => {
   if (req.url.substr(0, 5) === '/cake') return cake(req, res)

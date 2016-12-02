@@ -19,3 +19,11 @@ input {
 .foa:focus {
   border-color: black
 }
+
+.hidden {
+  opacity: 0;
+}
+
+.fade {
+  transition: opacity 2s
+}

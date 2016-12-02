@@ -20,6 +20,10 @@ module.exports = {
       xhr.post('/cake/' + id, { body: reason }, (err, result) => {
         if (err) console.log(err)
         console.log(result)
+        const href = '/' + id
+        window.history.pushState({}, null, href)
+        send('update', { reason: reason }, done)
+        send('location:setLocation', { location: href }, done)
       })
     },
     get: (id, state, send, done) => {

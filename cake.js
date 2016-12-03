@@ -17,10 +17,9 @@ function Cake (state, prev, send) {
       <h1 class="f3 mb2">${state.reason}</h1>
       <h2 class="f5 fw4 gray mt0">have your piece of 🍰</h2>
       ${eaten ? null : form(submit)}
-
       ${List(state.pieces)}
       <small class="mid-gray pt2">Share the party:</small>
-      <span class="f6 db mid-gray">${window.location.href}</span>
+      <a href=${window.location.href} class="f6 db mid-gray">${window.location.href}</a>
     </div>
   `
 

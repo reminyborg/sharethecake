@@ -17,7 +17,6 @@ const Container = (content) => {
   return (state, prev, send) => {
     if (state.id !== state.params.id) send('get', state.params.id)
     const hidden = (content.name === 'Cake' && !state.reason) ? 'hidden' : ''
-    console.log(content.name)
     return html`
       <div class="container">
       <main class=${`${hidden} fade mw5 mw6-ns center bg-white br3 pa3 pa4-ns mv3 ba b--black-10`}>

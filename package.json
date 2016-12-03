@@ -20,6 +20,7 @@
     "concat-stream": "^1.5.2",
     "d3": "^4.4.0",
     "envify": "^4.0.0",
+    "es2020": "^1.1.9",
     "form-serialize": "^0.7.1",
     "level": "^1.5.0",
     "sheetify": "^6.0.1",

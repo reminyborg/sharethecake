@@ -19,7 +19,6 @@ module.exports = {
       const id = shortid.generate()
       xhr.post('/cake/' + id, { body: reason }, (err, result) => {
         if (err) console.log(err)
-        console.log(result)
         const href = '/' + id
         window.history.pushState({}, null, href)
         send('update', { reason: reason }, done)
@@ -32,6 +31,7 @@ module.exports = {
         if (err) console.log(err)
         result = JSON.parse(result.body)
         send('update', result, done)
+        setTimeout(() => send('get', id, done), 9000)
       })
       done()
     },

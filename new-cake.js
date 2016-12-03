@@ -10,16 +10,14 @@ const form = (submit) => html`
     </form>
 `
 
-const mainView = (state, prev, send) => {
+const NewCake = (state, prev, send) => {
   if (state.id !== state.params.id) send('get', state.params.id)
   return html`
-    <section class="mw5 mw6-ns center bg-white br3 pa3 pa4-ns mv3 ba b--black-10">
     <div class="tc">
       <h1 class="f3 mb2">It's celebration time!</h1>
       <h2 class="f5 fw4 gray mt0">why are we sharing 🍰</h2>
       ${form(submit)}
     </div>
-    </section>
   `
 
   function submit (e) {
@@ -28,4 +26,4 @@ const mainView = (state, prev, send) => {
   }
 }
 
-module.exports = mainView
+module.exports = NewCake

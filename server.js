@@ -45,11 +45,11 @@ function add (id, name, res) {
 }
 
 function get (id, res) {
-  const result = {}
-  db.createReadStream({ gte: id, lt: id + '!', fillCache: true })
+  let result = false
+  db.createReadStream({ gte: id, lt: id + '~', fillCache: true })
     .on('data', (data) => {
-      result.reason = data.value
-      console.log(data)
+      if (!result) result = { reason: data.value, pieces: [] }
+      else result.pieces.push({ uid: data.key.substr(data.key.indexOf('/') + 1), name: data.value })
     })
     .on('end', () => res.end(JSON.stringify(result)))
 }

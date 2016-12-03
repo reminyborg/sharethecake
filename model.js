@@ -10,7 +10,7 @@ if (!uid) {
 }
 
 module.exports = {
-  state: {},
+  state: { uid: uid },
   reducers: {
     update: (data, state) => (Object.assign({}, state, data))
   },
@@ -30,7 +30,6 @@ module.exports = {
       send('update', { id: id }, done)
       xhr.get('/cake/' + id, (err, result) => {
         if (err) console.log(err)
-        console.log(result)
         result = JSON.parse(result.body)
         send('update', result, done)
       })
@@ -39,7 +38,9 @@ module.exports = {
     eat: (name, state, send, done) => {
       xhr.put('/cake/' + state.id + '/' + uid, { body: name }, (err, result) => {
         if (err) console.log(err)
-        console.log(result)
+        send('get', state.id, done)
+        // const newPiece = { uid: uid, name: name }
+        // send('update', Object.assign({}, state, { pieces: state.pieces.concat(newPiece) }))
       })
       done()
     }

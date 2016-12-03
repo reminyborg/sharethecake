@@ -30,9 +30,13 @@ const mainView = (state, prev, send) => {
     <section class=${`${hidden} fade mw5 mw6-ns center bg-white br3 pa3 pa4-ns mv3 ba b--black-10`}>
       <div class="tc">
         <h1 class="f3 mb2">${state.reason}</h1>
-        <h2 class="f5 fw4 gray mt0">lets share a piece of 🍰</h2>
+        <h2 class="f5 fw4 gray mt0">have your piece of 🍰</h2>
         ${form(submit)}
       </div>
+      <footer class="tc pt2">
+        <small class="mid-gray">Lets share the party:</small>
+        <a href=${window.location.href} class="f6 db mid-gray">${window.location.href}</a>
+      </footer>
     </section>
   `
 
